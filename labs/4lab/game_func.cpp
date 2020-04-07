@@ -1,7 +1,8 @@
-#include "game_func.h"
+ï»¿#include "game_func.h"
 #include <iostream>
 #include <time.h>
 using namespace std;
+
 Game initGame(char userChar)
 {
 	srand(time(NULL));
@@ -11,10 +12,11 @@ Game initGame(char userChar)
 			new_game.bord[i][j] = ' ';
 	new_game.isUserTurn = bool(rand() % 2);
 	new_game.userChar = userChar;
-	switch (new_game.userChar) 
+	new_game.status = PLAY;
+	switch (new_game.userChar)
 	{
-		case '0': new_game.botChar = 'X'; break;
-		case 'X': new_game.botChar = '0'; break;
+	case '0': new_game.botChar = 'X'; break;
+	case 'X': new_game.botChar = '0'; break;
 	}
 	return new_game;
 
@@ -22,7 +24,7 @@ Game initGame(char userChar)
 void updateDisplay(const Game game)
 {
 	system("cls");
-	
+
 	cout << "a  " << "b  " << "c " << endl;
 	cout << "__________" << endl;
 	for (int i = 0; i < 3; i++) {
@@ -36,25 +38,25 @@ void botTurn(Game* game)
 {
 	/*
 	*
-	Âûïîëíÿåò õîä áîòà. Â âûáðàííóþ ÿ÷åéêó óñòàíàâëèâàåòñÿ ñèìâîë êîòîðûì èãðàåò áîò.
-	Áîò äîëæåí îïðåäåëÿòü ñòðîêó, ñòîëáåö èëè äèàãîíàëü â êîòîðîé ó èãðîêà áîëüøå âñåãî èêñèêîâ/íîëèêîâ è ñòàâèòü òóäà ñâîé ñèìâîë. 
-	Åñëè íà ïîëå åù¸ íåò ìåòîê, áîò äîëæåí ñòàâèòü ñâîé çíàê â öåíòð. 
-	Â îñòàëüíûõ ñëó÷àÿõ áîò õîäèò ðàíäîìíî.
+	Ð’Ñ‹Ð¿Ð¾Ð»Ð½ÑÐµÑ‚ Ñ…Ð¾Ð´ Ð±Ð¾Ñ‚Ð°. Ð’ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½ÑƒÑŽ ÑÑ‡ÐµÐ¹ÐºÑƒ ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ÑÑ ÑÐ¸Ð¼Ð²Ð¾Ð» ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ Ð¸Ð³Ñ€Ð°ÐµÑ‚ Ð±Ð¾Ñ‚.
+	Ð‘Ð¾Ñ‚ Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÑ‚ÑŒ ÑÑ‚Ñ€Ð¾ÐºÑƒ, ÑÑ‚Ð¾Ð»Ð±ÐµÑ† Ð¸Ð»Ð¸ Ð´Ð¸Ð°Ð³Ð¾Ð½Ð°Ð»ÑŒ Ð² ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð¹ Ñƒ Ð¸Ð³Ñ€Ð¾ÐºÐ° Ð±Ð¾Ð»ÑŒÑˆÐµ Ð²ÑÐµÐ³Ð¾ Ð¸ÐºÑÐ¸ÐºÐ¾Ð²/Ð½Ð¾Ð»Ð¸ÐºÐ¾Ð² Ð¸ ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ Ñ‚ÑƒÐ´Ð° ÑÐ²Ð¾Ð¹ ÑÐ¸Ð¼Ð²Ð¾Ð».
+	Ð•ÑÐ»Ð¸ Ð½Ð° Ð¿Ð¾Ð»Ðµ ÐµÑ‰Ñ‘ Ð½ÐµÑ‚ Ð¼ÐµÑ‚Ð¾Ðº, Ð±Ð¾Ñ‚ Ð´Ð¾Ð»Ð¶ÐµÐ½ ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ²Ð¾Ð¹ Ð·Ð½Ð°Ðº Ð² Ñ†ÐµÐ½Ñ‚Ñ€.
+	Ð’ Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ñ… ÑÐ»ÑƒÑ‡Ð°ÑÑ… Ð±Ð¾Ñ‚ Ñ…Ð¾Ð´Ð¸Ñ‚ Ñ€Ð°Ð½Ð´Ð¾Ð¼Ð½Ð¾.
 	*/
 	bool isEmpty = true;
-	for(int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
 		{
 			if (game->bord[i][j] != ' ')
 			{
 				isEmpty = 0; break;
 			}
-		} // ïðîâåðêà ïóñòîå ëè ïîëå
+		} // Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¿ÑƒÑÑ‚Ð¾Ðµ Ð»Ð¸ Ð¿Ð¾Ð»Ðµ
 	if (isEmpty) game->bord[1][1] = game->botChar;
 	else
 	{
-		
-		for (int i = 0; i < 3; i++) // ñòðîêà
+
+		for (int i = 0; i < 3; i++) // ÑÑ‚Ñ€Ð¾ÐºÐ°
 		{
 			int str = 0, col = 0;
 			for (int j = 0; j < 3; j++)
@@ -62,10 +64,11 @@ void botTurn(Game* game)
 				if (game->bord[i][j] == game->userChar) str++;
 				else if (game->bord[i][j] != game->userChar) col = j;
 			}
-			if (str == 2){ game->bord[i][col] = game->botChar; return;
+			if (str == 2) {
+				game->bord[i][col] = game->botChar; return;
+			}
 		}
-		}
-		for (int i = 0; i < 3; i++) // ñòîëáåö
+		for (int i = 0; i < 3; i++) // ÑÑ‚Ð¾Ð»Ð±ÐµÑ†
 		{
 			int str = 0, col = 0;
 			for (int j = 0; j < 3; j++)
@@ -77,7 +80,7 @@ void botTurn(Game* game)
 				game->bord[col][i] = game->botChar; return;
 			}
 		}
-		for (int i = 0; i < 3; i++)//ãëàâíàÿ äèàãîíàëü ìàññèâà
+		for (int i = 0; i < 3; i++)//Ð³Ð»Ð°Ð²Ð½Ð°Ñ Ð´Ð¸Ð°Ð³Ð¾Ð½Ð°Ð»ÑŒ Ð¼Ð°ÑÑÐ¸Ð²Ð°
 		{
 			int str = 0, col = 0;
 			for (int j = 0; j < 3; j++)
@@ -87,13 +90,13 @@ void botTurn(Game* game)
 			}
 			if (str == 2) { game->bord[col][col] = game->botChar; return; }
 		}
-		for (int i = 0; i < 3; i++) //ïîáî÷íàÿ äèàãîíàëü ìàññèâà
+		for (int i = 0; i < 3; i++) //Ð¿Ð¾Ð±Ð¾Ñ‡Ð½Ð°Ñ Ð´Ð¸Ð°Ð³Ð¾Ð½Ð°Ð»ÑŒ Ð¼Ð°ÑÑÐ¸Ð²Ð°
 		{
 			int str = 0, col = 0;
 			for (int j = 0; j < 3; j++)
 			{
-				if (game->bord[i][2-i] == game->userChar) str++;
-				else if (game->bord[i][2-i] != game->userChar) col = i;
+				if (game->bord[i][2 - i] == game->userChar) str++;
+				else if (game->bord[i][2 - i] != game->userChar) col = i;
 			}
 			if (str == 2) {
 				game->bord[col][2 - col] = game->botChar; return;
@@ -116,30 +119,83 @@ void userTurn(Game* game)
 	{
 		while (is_x)
 		{
-			cout << "ââåäèòå õ " << endl;
+			cout << "Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ…" << endl;
 			cin >> x_coord;
-			if (x_coord < 0 || x_coord > 2) cout << "Äàííûå íåêîððåêòíû, ïîâòîðèòå ïîïûòêó" << endl;
+			if (x_coord < 0 || x_coord > 2) cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹, Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÑƒ" << endl;
 			else is_x = false;
 		}
 		while (is_y)
 		{
-			cout << "ââåäèòå y " << endl;
+			cout << "Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ y" << endl;
 			cin >> y_coord;
-			if (y_coord < 0 || y_coord > 2) cout << "Äàííûå íåêîððåêòíû, ïîâòîðèòå ïîïûòêó!" << endl;
+			if (y_coord < 0 || y_coord > 2) cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹, Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚Ðµ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÑƒ!" << endl;
 			else is_y = false;
-		} 
+		}
 		if (game->bord[x_coord][y_coord] == ' ')two_bools = false;
 		else
 		{
-			cout << "Ïîïàëñÿ! :))" << endl;
+			cout << "ÐžÑˆÐ¸Ð±ÐºÐ°, Ð¾ÑˆÐ¸Ð±Ð¾Ðº Ð½ÐµÑ‚:))" << endl;
 			is_x = true;
 			is_y = true;
 		}
-		
+
 	}
 	game->bord[x_coord][y_coord] = game->userChar;
 }
 bool updateGame(Game* game)
 {
+	int counter;
+	for (int i = 0; i < 3; i++)
+	{
+		counter = 0;
+		for (int j = 0; j < 3; j++)
+		{
+			if (game->bord[i][j] == game->userChar) counter++;
+			else if (game->bord[i][j] == game->botChar) counter--;
+		}
+		if (counter == 3) game->status = USER_WIN;
+		else if (counter == -3)game->status = BOT_WIN;
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		counter = 0;
+		for (int j = 0; j < 3; j++)
+		{
+			if (game->bord[j][i] == game->userChar) counter++;
+			else if (game->bord[j][i] == game->botChar) counter--;
+		}
+		if (counter == 3) game->status = USER_WIN;
+		else if (counter == -3)game->status = BOT_WIN;
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		counter = 0;
+		if (game->bord[i][i] == game->userChar) counter++;
+		else if (game->bord[i][i] == game->botChar) counter--;
+		if (counter == 3) game->status = USER_WIN;
+		else if (counter == -3)game->status = BOT_WIN;
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		counter = 0;
+		for (int j = 0; j < 3; j++)
+		{
+
+		}
+	}
+	if (game->status == PLAY) {
+		counter = 0;
+		for (int i = 0; i < 3; i++) {
+			for (int k = 0; k < 3; k++) {
+				if (game->bord[i][k] == ' ')counter++;
+			}
+		}
+		if (!counter) {
+			game->status = NOT_WIN;
+			return true;
+		}
+		game->isUserTurn = !game->isUserTurn;
+		return false;
+	}
 	return true;
 }
