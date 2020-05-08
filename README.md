@@ -35,4 +35,4 @@
 |28. |BozoSort|[p_practice/Task 28](https://github.com/zalatoff/programming/tree/master/p_practice/Task%2028)|
 |29. |Аргументы командной строки|[p_practice/Task 29](https://github.com/zalatoff/programming/tree/master/p_practice/Task%2029)|
 |30.|Токенизатор|[p_practice/Task 30](https://github.com/zalatoff/programming/tree/master/p_practice/Task%2030)|
-|31.|Лабиринт|[p_practice/Task_31](https://github.com/zalatoff/programming/tree/master/p_practice/Task%2031)|
+|31.|Лабиринт|[p_practice/Task_31](https://github.com/zalatoff/programming/tree/master/p_practice/task_31)|
