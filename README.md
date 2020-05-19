@@ -43,11 +43,11 @@
 |-------|--------|------|
 |1. |Изучение базовых возможностей MS Visual Studio||
 |2. |Табулирование кусочно-заданной функции|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№2.md)|
-|3. |Дешифровка текста из изображения||
-|4. |Иксики-нолики||
-|5. |Работа с текстовыми файлами||
+|3. |Дешифровка текста из изображения|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№3.md)|
+|4. |Иксики-нолики|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№4.md)|
+|5. |Работа с текстовыми файлами|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№5.md)|
 |6. |Погодный информер||
-|7. |Изучение базовых возможностей IDE Qt Creator||
-|8. |Настройка Qt Creator для разработки приложений под android||
+|7. |Изучение базовых возможностей IDE Qt Creator|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№7.md)|
+|8. |Настройка Qt Creator для разработки приложений под android|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№8.md)|
 |9. |Тестирование при помощи Google Test Framework||
 |10. |||
