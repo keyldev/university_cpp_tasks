@@ -2,7 +2,7 @@
 Подрепозиторий содержит .cpp файл названием выполненного задания, всего заданий 32.<br>
 Возможны неправильные названия файлов - twentu_one.cpp, подписывал сонный :(
 <br>Сделано практических заданий: 26 / 34; <br>
-Сделано лабораторных работ: 7 / 10; <br>
+Сделано лабораторных работ: 8 / 9; <br>
 ### Практические задания
 |Задание|Название|Ссылка|
 |-------|--------|------|
@@ -49,4 +49,4 @@
 |6. |Погодный информер||
 |7. ✓|Изучение базовых возможностей IDE Qt Creator|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№7.md)|
 |8. ✓|Настройка Qt Creator для разработки приложений под android|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№8.md)|
-|9. ✓|Тестирование при помощи Google Test Framework||
+|9. ✓|Тестирование при помощи Google Test Framework|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№9.md)|
