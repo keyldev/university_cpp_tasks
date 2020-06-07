@@ -49,5 +49,4 @@
 |6. |Погодный информер||
 |7. ✓|Изучение базовых возможностей IDE Qt Creator|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№7.md)|
 |8. ✓|Настройка Qt Creator для разработки приложений под android|[click](https://github.com/kickStranger/programming/blob/master/labs/Лабораторная%20работа%20№8.md)|
-|9. |Тестирование при помощи Google Test Framework||
-|10. |||
+|9. ✓|Тестирование при помощи Google Test Framework||
